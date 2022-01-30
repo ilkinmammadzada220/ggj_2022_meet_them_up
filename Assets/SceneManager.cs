@@ -44,9 +44,8 @@ public class SceneManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-        if (UnityEngine.SceneManagement.SceneManager.sceneCount == UnityEngine.SceneManagement.SceneManager
-            .GetActiveScene()
-            .buildIndex + 1)
+        if (UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings - 1 == UnityEngine.SceneManagement.SceneManager
+            .GetActiveScene().buildIndex)
             LoadScene(0);
         else
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
