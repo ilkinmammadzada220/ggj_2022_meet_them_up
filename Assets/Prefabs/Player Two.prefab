@@ -222,6 +222,7 @@ MonoBehaviour:
   visual: {fileID: 2233814552593427235}
   groundChecker: {fileID: 2233814552266147678}
   canControllable: 0
+  meshRenderer: {fileID: 2233814552593427245}
   normalMoveSpeed: 5
   normalRotateSpeed: 7
   jumpSpeed: 11
@@ -241,6 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectToParent: {fileID: 2233814553783219144}
   movementController: {fileID: 2233814553163161504}
+  metFX: {fileID: 19800018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
+  heartPrefab: {fileID: 1000010714891294, guid: 5a0537415d4017c4fad7a4986f502dc1, type: 3}
 --- !u!1 &2233814553783219145
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,19 +7,22 @@ namespace UnityTemplateProjects
     {
         [SerializeField] private TeleportHole connectedHole;
         [SerializeField] private Collider collider;
+        [SerializeField] private ParticleSystem fx;
 
         [Space] [Header("Destroy Animation Settings")] [SerializeField]
         private float duration;
 
-        [SerializeField] private float elasticity;
-        [SerializeField] private int vibrato;
         [SerializeField] private Ease ease;
 
         public void Use()
         {
             collider.enabled = false;
-            transform.DOPunchScale(Vector3.zero, duration, vibrato, elasticity)
+            transform.DOScale(Vector3.zero, duration)
                 .SetEase(ease)
+                .OnUpdate(() =>
+                {
+                    fx.startSize = transform.localScale.x;
+                })
                 .OnComplete(() => { gameObject.SetActive(false); });
         }
 

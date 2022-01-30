@@ -11,6 +11,9 @@ public class MovementController : MonoBehaviour
     [SerializeField] private GroundChecker groundChecker;
     [SerializeField] private bool canControllable;
 
+    [Space] [Header("Color Changer Settings")] [SerializeField]
+    private MeshRenderer meshRenderer;
+
     [Space] [Header("Normal Move Settings")] [SerializeField]
     private float normalMoveSpeed;
 
@@ -23,25 +26,32 @@ public class MovementController : MonoBehaviour
 
     private bool _isCarryingCube = false, _canJump;
 
-    private static MovementController _instance;
 
     private float _moveSpeed, _rotateSpeed;
 
-    private void Awake()
-    {
-        _instance = this;
-    }
+    private Color baseColor;
 
     private void Start()
     {
         _moveSpeed = normalMoveSpeed;
         _rotateSpeed = normalRotateSpeed;
+
+        baseColor = meshRenderer.material.color;
+        ChangeColor(canControllable ? baseColor : Color.gray);
+    }
+
+    private void ChangeColor(Color color)
+    {
+        meshRenderer.material.color = color;
     }
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.F))
+        {
             canControllable = !canControllable;
+            ChangeColor(canControllable ? baseColor : Color.gray);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
             _canJump = true;
@@ -54,7 +64,7 @@ public class MovementController : MonoBehaviour
         MoveAndRotate();
         if (_canJump)
             Jump();
-        
+
         rb.AddForce(Physics.gravity * (5 - 1) * rb.mass);
     }
 
@@ -107,5 +117,6 @@ public class MovementController : MonoBehaviour
         _rotateSpeed = rotateSpeed;
     }
 
-    public static MovementController Instance => _instance;
+
+    public bool CanControllable => canControllable;
 }

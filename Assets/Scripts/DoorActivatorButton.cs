@@ -14,7 +14,7 @@ namespace UnityTemplateProjects
 
         [SerializeField] private float duration;
 
-        [SerializeField] private float moveDistanceY;
+        [SerializeField] private float onActiveY = 0f, onDeactiveY = 0.1f;
         [SerializeField] private Ease ease;
 
         [Space] [Header("Color Change Settings")] [SerializeField]
@@ -46,6 +46,11 @@ namespace UnityTemplateProjects
                 {
                     if (isMatch && !_isLocked)
                         Activate();
+                    else
+                    {
+                        PlayActivateAnimation();
+                        ChangeColor(activateColor);
+                    }
                 }
                 else
                     Activate();
@@ -65,6 +70,11 @@ namespace UnityTemplateProjects
                 {
                     if (isMatch && !_isLocked)
                         Deactivate();
+                    else
+                    {
+                        ChangeColor(deactivateColor);
+                        PlayDeactivateAnimation();
+                    }
                 }
                 else
                     Deactivate();
@@ -88,14 +98,14 @@ namespace UnityTemplateProjects
         private void PlayActivateAnimation()
         {
             animation?.Kill(true);
-            animation = button.DOMoveY(-moveDistanceY, duration)
+            animation = button.DOLocalMoveY(onActiveY, duration)
                 .SetEase(ease);
         }
 
         private void PlayDeactivateAnimation()
         {
             animation?.Kill(true);
-            animation = button.DOMoveY(moveDistanceY, duration)
+            animation = button.DOLocalMoveY(onDeactiveY, duration)
                 .SetEase(ease);
         }
 

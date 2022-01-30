@@ -81,6 +81,7 @@ MonoBehaviour:
   visual: {fileID: 3788112318825814847}
   groundChecker: {fileID: 7488714751972336708}
   canControllable: 1
+  meshRenderer: {fileID: 6201988853667041951}
   normalMoveSpeed: 5
   normalRotateSpeed: 7
   jumpSpeed: 11
@@ -100,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectToParent: {fileID: 7816462770509628790}
   movementController: {fileID: 839662921711479433}
+  metFX: {fileID: 19800018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
+  heartPrefab: {fileID: 1000010714891294, guid: 5a0537415d4017c4fad7a4986f502dc1, type: 3}
 --- !u!1 &1125076312353213674
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,8 +185,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3788112318825814847}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.71, y: 0, z: 0.44999993}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1204836282507353557}
@@ -219,7 +222,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100006, guid: 6296e48663fd7ad46b1a2af507f871cf, type: 3}
+  - {fileID: 2100006, guid: bae110eee250e4b418b188f4ae4e3170, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -301,7 +304,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100006, guid: bae110eee250e4b418b188f4ae4e3170, type: 3}
+  - {fileID: 2100006, guid: 6296e48663fd7ad46b1a2af507f871cf, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -58,8 +58,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11bac6d0c9341b6bce9feb065826030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
   mesh: {fileID: 465119713280052373}
+  isMatch: 0
+  isLockable: 0
+  triggableTag: 
   button: {fileID: 4160554038023184507}
   duration: 0.1
   moveDistanceY: 0.1
